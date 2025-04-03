@@ -2,83 +2,50 @@
 import { defineConfig, devices } from '@playwright/test';
 
 /**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
+ * Playwright configuration file.
+ * Reference: https://playwright.dev/docs/test-configuration
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
 export default defineConfig({
-  
-  timeout: 10000,
+  timeout: 10000,  // Temps maximum d'attente pour chaque test
 
-  testDir: './tests',
-  /* Run tests in files in parallel */
-  fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
-  forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  testDir: './tests',  // Répertoire contenant les tests
+
+  // Options liées à l'exécution des tests
+  fullyParallel: true,  // Exécuter les tests dans les fichiers en parallèle
+  forbidOnly: !!process.env.CI,  // Empêche les tests marqués avec test.only en CI
+  retries: process.env.CI ? 2 : 0,  // Réessayer les tests échoués en CI
+  workers: process.env.CI ? 1 : undefined,  // Nombre de workers en CI
+  reporter: 'html',  // Rapport des résultats au format HTML
+
+  // Paramètres partagés pour tous les projets ci-dessous
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    // baseURL: 'http://127.0.0.1:3000',  // URL de base (commentée ici, à personnaliser si nécessaire)
+    trace: 'on-first-retry',  // Collecter des traces lors des premières tentatives échouées
   },
 
-  /* Configure projects for major browsers */
+  // Configuration des projets pour différents navigateurs
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'chromium',  // Projet pour Chromium (Chrome)
+      use: { ...devices['Desktop Chrome'] },  // Utilise les paramètres de périphérique pour Chrome
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'firefox',  // Projet pour Firefox
+      use: { ...devices['Desktop Firefox'] },  // Utilise les paramètres de périphérique pour Firefox
     },
 
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'webkit',  // Projet pour Webkit (Safari)
+      use: { ...devices['Desktop Safari'] },  // Utilise les paramètres de périphérique pour Safari
     },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
   ],
 
-  /* Run your local dev server before starting the tests */
+  // Serveur local pour démarrer avant les tests (commenté ici, à activer si nécessaire)
   // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
+  //   command: 'npm run start',  // Commande pour démarrer le serveur local
+  //   url: 'http://127.0.0.1:3000',  // URL du serveur local
+  //   reuseExistingServer: !process.env.CI,  // Réutiliser le serveur existant en dehors de CI
   // },
 });
-
