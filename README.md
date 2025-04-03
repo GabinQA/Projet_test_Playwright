@@ -1,44 +1,50 @@
-# 📌 Projet de Tests Automatisés - Demoblaze
+# 📌 Projet de Tests Automatisés - SauceDemo
 
 ## 📖 Présentation du projet
-Ce projet vise à tester les fonctionnalités principales du site **Demoblaze** à l'aide de **tests fonctionnels automatisés**. Ces tests permettent de s'assurer que les fonctionnalités essentielles du site sont opérationnelles et qu'elles peuvent être vérifiées rapidement dans le cadre de **tests de régression**.
 
-Ce projet est conçu pour illustrer la mise en place de tests automatisés et fournir une base pour une suite de tests plus complète.
+Le projet **SauceDemo** est une suite de tests automatisés visant à valider les fonctionnalités principales du site de commerce en ligne. Ces tests couvrent les processus essentiels tels que l'authentification, la navigation, la gestion du panier et le passage de commande. L'objectif est de garantir que ces fonctionnalités sont performantes et fonctionnelles, tout en assurant une couverture pour des tests de régression futurs.
 
 ## 🎯 Objectifs
-- Tester les fonctionnalités principales du site **Demoblaze**
-- Détecter d'éventuels problèmes via des tests automatisés
-- Mettre en place des **tests fonctionnels** qui pourraient être utilisés en entreprise pour de la **régression**
-- Démontrer des compétences en **automatisation des tests** et en **création de cas de test**.
+
+- **Automatiser les tests fonctionnels** du site **SauceDemo**
+- **Valider les scénarios clés** : connexion, consultation des produits, gestion du panier, passage de commande
+- **Fournir un cadre de tests réutilisable** pour des tests de régression à l'avenir
+- **Illustrer l'utilisation de Playwright** pour l'automatisation des tests
+- **Pratiquer la gestion des cas de test** via des outils comme Jira/Xray
 
 ## 📌 Périmètre des tests
-Les tests couvrent :
-✔️ **Authentification** (création de compte, connexion, déconnexion)
-✔️ **Navigation** (accès aux catégories et consultation des produits)
-✔️ **Gestion du panier** (ajout, suppression, mise à jour du total)
-✔️ **Passage de commande** (validation de commande et gestion des erreurs)
 
-⛔ **Ce projet ne couvre pas** :
-❌ La page de contact
-❌ Les favoris
+Les tests couvrent les cas suivants :
+- **Authentification** : connexion, gestion des erreurs et déconnexion
+- **Navigation** : Accès aux produits et consultation des détails
+- **Panier** : Ajout, suppression, mise à jour du total
+- **Commande** : Finalisation d’une commande et gestion des erreurs
+
+## ⛔ Ce projet ne couvre pas
+
+- **Page "About"** : Le projet ne teste pas la page "About" qui contient des informations sur l'entreprise. Cette page n'est pas incluse dans le cadre de l'automatisation des tests.
+- **Les autres types de comptes** : Le projet prend en compte seulement l'utilisateur sans erreurs : "standard_user"
 
 ## 🛠️ Stack technique
+
 - **Langage** : JavaScript
 - **Framework de test** : [Playwright](https://playwright.dev/)
-- **Gestion des tests** : Jira/Xray (cas de test documentés dans un fichier Excel)
+- **Gestion des tests** : Jira/Xray ---> Tests retranscrits  dans le dossier test_description
+
+## 📂 Structure du projet
 
 ## 📂 Structure du projet
 ```
  ├── 📂 test_description         # Fichiers de description des tests manuels en .md
- │   ├── US1_authentification.md # Description des tests d'authentification ✅
- │   ├── US2_navigation.md       # Description des tests de navigation // ✅
- │   ├── US3_panier.md           # Description des tests du panier // ( en construction 👷 )
- │   ├── US4_commande.md         # Description des tests de commande // ( en construction 👷 )
+ │   ├── US1_authentification.md # Description des tests d'authentification 
+ │   ├── US2_navigation.md       # Description des tests de navigation // 
+ │   ├── US3_panier.md           # Description des tests du panier // 
+ │   ├── US4_commande.md         # Description des tests de commande // 
  ├── 📂 tests                    # Fichiers des tests automatisés en .js
- │   ├── authentication.spec.js  # Tests automatisés liés à l'authentification ✅
- │   ├── navigation.spec.js      # Tests automatisés liés à la navigation // ✅
- │   ├── cart.spec.js            # Tests automatisés liés au panier // ( en construction 👷 )
- │   ├── order.spec.js           # Tests automatisés liés au passage de commande // ( en construction 👷 )
+ │   ├── authentification.test.js  # Tests automatisés liés à l'authentification 
+ │   ├── navigation.test.js      # Tests automatisés liés à la navigation // 
+ │   ├── panier.test.js            # Tests automatisés liés au panier // 
+ │   ├── commande.test.js           # Tests automatisés liés au passage de commande // 
  ├── .gitignore                  # Liste des fichiers et dossiers à ignorer par Git
  ├── README.md                   # Documentation du projet
  ├── package-lock.json           # Verrouillage des versions des dépendances
@@ -47,47 +53,20 @@ Les tests couvrent :
 
 ```
 
-## ✅ Cas de tests
+### **Synthèse des cas de test**
 
-| ID   | Test Case                 | Description                                              | Résultat Attendu                                    | User Story 📌 |
-|------|----------------------------|---------------------------------------------------------|------------------------------------------------------|---------------|
-| 🟢 TC01 | **Création de compte**       | Un utilisateur peut créer un compte valide              | Le compte est créé et un message de confirmation s'affiche | US01 - Authentification |
-| 🟢 TC02 | **Connexion valide**         | Un utilisateur peut se connecter avec des identifiants corrects | L'utilisateur est connecté et son nom s'affiche en haut | US01 - Authentification |
-| 🟢 TC03 | **Connexion invalide**       | Un utilisateur ne peut pas se connecter avec des identifiants erronés | Un message d'erreur s'affiche | US01 - Authentification |
-| 🟢 TC04 | **Déconnexion**              | Un utilisateur connecté peut se déconnecter              | L'utilisateur est redirigé vers la page d'accueil | US01 - Authentification |
-| 🔵 TC05 | **Navigation dans les catégories** | L'utilisateur peut naviguer entre les catégories (Laptops, Phones, Monitors) | La liste des produits de la catégorie sélectionnée s'affiche | US02 - Navigation |
-| 🔵 TC06 | **Consultation d'un produit**  | L'utilisateur peut voir les détails d'un produit (image, description, prix) | La page du produit s'affiche avec les bonnes informations | US02 - Navigation |
-| 🟡 TC07 | **Ajout au panier**          | L'utilisateur peut ajouter un produit au panier          | Le produit apparaît dans le panier | US03 - Panier |
-| 🟡 TC08 | **Suppression d'un produit**  | L'utilisateur peut supprimer un produit du panier        | Le produit disparaît du panier | US03 - Panier |
-| 🟡 TC09 | **Mise à jour du total**      | Le total du panier est mis à jour après ajout/suppression | Le montant total est correct | US03 - Panier |
-| 🔴 TC10 | **Passage de commande**       | L'utilisateur peut finaliser une commande avec des infos valides | Une confirmation de commande s'affiche | US04 - Commande |
-| 🔴 TC11 | **Erreur de commande**        | Si des champs sont manquants, la commande échoue        | Un message d'erreur s'affiche | US04 - Commande |
-
-### 📌 Légende des couleurs :
-- 🟢 **US01 - Authentification** → Inscription, Connexion, Déconnexion
-- 🔵 **US02 - Navigation** → Parcours des catégories et consultation des produits
-- 🟡 **US03 - Panier** → Ajout, suppression et mise à jour du total
-- 🔴 **US04 - Commande** → Passage et validation des commandes
-
-
-## 🚀 Exécution des tests
-### Installation des dépendances
-```sh
-npm install
-```
-
-### Exécuter tous les tests
-```sh
-npx playwright test
-```
-
-### Exécuter un test spécifique
-```sh
-npx playwright test tests/authentication.spec.js
-```
-
-## 📌 Améliorations futures
-- Ajouter des tests pour les scénarios avancés
----
-🛠 **Auteur** : PAOLINO Gabin
-📅 **Dernière mise à jour** : 26/03/2025
+| User Story | Cas de Test | Description |
+| --- | --- | --- |
+| **US1** - Authentification | TC01 | Connexion avec un compte valide |
+|  | TC02 | Connexion sans nom d’utilisateur |
+|  | TC03 | Connexion sans mot de passe |
+|  | TC04 | Connexion avec identifiants incorrects |
+|  | TC05 | Déconnexion |
+| **US2** - Navigation | TC06 | Vérification de l'affichage des produits |
+|  | TC07 | Tri des produits |
+|  | TC08 | Consultation des détails d’un produit |
+| **US3** - Panier | TC09 | Ajouter un produit au panier |
+|  | TC10 | Supprimer un produit du panier |
+|  | TC11 | Vérifier la mise à jour du total |
+| **US4** - Commande | TC12 | Passage d’une commande réussie |
+|  | TC13 | Passage d’une commande avec erreurs |
