@@ -69,3 +69,24 @@ Le projet **SauceDemo** est une suite de tests automatisés visant à valider le
 |  | TC11 | Vérifier la mise à jour du total |
 | **US4** - Commande | TC12 | Passage d’une commande réussie |
 |  | TC13 | Passage d’une commande avec erreurs |
+
+## 🚀 Exécution des tests
+### Installation des dépendances
+```sh
+npm install
+```
+
+### Exécuter tous les tests
+```sh
+npx playwright test
+```
+
+### Exécuter un test spécifique
+```sh
+npx playwright test tests/authentification.test.js
+```
+
+## 📌 Améliorations futures
+- Ajouter des tests pour les scénarios avancés
+---
+🛠 **Auteur** : PAOLINO Gabin
