@@ -14,7 +14,6 @@ Le projet **SauceDemo** est une suite de tests automatisés visant à valider le
 
 ## 📌 Périmètre des tests
 
-Les tests couvrent les cas suivants :
 - **Authentification** : connexion, gestion des erreurs et déconnexion
 - **Navigation** : Accès aux produits et consultation des détails
 - **Panier** : Ajout, suppression, mise à jour du total
