@@ -1,25 +1,23 @@
-US1. Authentification et gestion du compte
-Description
+## **US1. Authentification et gestion du compte** 
+
+### **Description**  
 L'utilisateur doit pouvoir accéder à son compte en toute sécurité via un système d'authentification. Cela inclut la connexion avec des identifiants valides, la gestion des erreurs en cas de saisie incorrecte et la possibilité de se déconnecter.
 
-Critères d'acceptation
-✅ Connexion réussie
+### **Critères d'acceptation**  
 
-L’utilisateur peut entrer un nom d’utilisateur et un mot de passe valides pour accéder à son compte.
+#### ✅ **Connexion réussie**  
+- L’utilisateur peut entrer un nom d’utilisateur et un mot de passe valides pour accéder à son compte.  
+- Une fois connecté, l’utilisateur est redirigé vers la page principale du site.  
 
-Une fois connecté, il est redirigé vers la page principale du site.
+#### ✅ **Gestion des erreurs**  
+- Si les identifiants sont incorrects, un message d’erreur clair doit s’afficher.  
+- Si un champ est laissé vide, un message d'erreur spécifique doit être affiché.  
 
-✅ Gestion des erreurs
+#### ✅ **Déconnexion**  
+- L’utilisateur peut se déconnecter via une option dédiée.  
+- Après déconnexion, l’utilisateur est redirigé vers la page de connexion et ne peut plus accéder à son compte sans se reconnecter.  
 
-Si les identifiants sont incorrects, un message d’erreur clair doit s’afficher.
 
-Si un champ est laissé vide, un message d'erreur spécifique doit être affiché.
-
-✅ Déconnexion
-
-L’utilisateur peut se déconnecter via une option dédiée.
-
-Après déconnexion, il est redirigé vers la page de connexion et ne peut plus accéder à son compte sans se reconnecter.
 ---
 
 ### **🔹 Test 01 : Connexion avec un compte valide**  
