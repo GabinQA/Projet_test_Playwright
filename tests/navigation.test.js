@@ -70,4 +70,36 @@ test.describe('US2 - Navigation & Consultation des Produits', () => {
     
   });
   
-});  
+  test('TC08 - Vérification de la page de détails du produit', async ({ page }) => {
+    // Récupérer tous les éléments des produits (les liens d'images et de noms)
+    const products = await page.locator('.inventory_item').all();
+  
+    // Choisir un produit aléatoire parmi les produits disponibles
+    const randomProductIndex = Math.floor(Math.random() * products.length);
+    const randomProduct = products[randomProductIndex];
+
+    // Sélectionner aléatoirement entre cliquer sur l'image ou le nom du produit
+    const clickOn = Math.random() < 0.5;  // 50% de chance de cliquer sur l'image
+
+    if (clickOn) {
+       
+        await randomProduct.locator('a[data-test*="img-link"]').click(); 
+    } else {
+       
+        await randomProduct.locator('a[data-test*="title-link"]').click();
+    }
+
+    // Attendre que l'URL contienne l'ID du produit choisi
+    await page.waitForURL(/inventory-item.html\?id=\d+/);
+
+    // Vérifier que le nom, la description, le prix et l'image sont visibles dans la page de détails
+    await expect(page.locator('.inventory_details_name')).toBeVisible(); // vérifie que le nom du produit est visible
+    await expect(page.locator('.inventory_details_desc')).toBeVisible(); // vérifie que la description du produit est visible
+    await expect(page.locator('.inventory_details_price')).toBeVisible(); // vérifie que le prix du produit est visible
+    await expect(page.locator('.inventory_details_img')).toBeVisible(); // vérifie que l'image du produit est visible
+    await expect(page.locator('[data-test="add-to-cart"]')).toBeVisible(); // vérifie que le bouton du produit est visible
+    await expect(page.locator('[data-test="add-to-cart"]')).toBeEnabled(); // Vérifie que le bouton est cliquable.
+  });
+
+});
+
