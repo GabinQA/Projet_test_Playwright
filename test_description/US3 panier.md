@@ -80,4 +80,4 @@ Vérifier que le total du panier reflète bien les produits ajoutés ou supprim�
 | **1.** | Cliquer sur l'icone du panier en haut a droite de l'écran | - | La page affiche les articles dans le panier |
 | **2.** | Cliquer sur le bouton Checkout | - | La page "Checkout: Your Information" s'affiche et demande les informations de l'utilisateur |
 | **3.** | Remplir les 3 champs avec les données indiquées | First Name : test<br> Last Name : test<br> Zip/Postal code : 34130<br>  | // |
-| **4.** | Cliquer sur le bouton "Continue" | - | "La page Checkout: Overview" s'affiche et affiche les informations et le prix total |
+| **4.** | Cliquer sur le bouton "Continue" | - | "La page Checkout: Overview" s'affiche et affiche les informations et le prix total qui doit être la somme du prix des articles dans le panier|
