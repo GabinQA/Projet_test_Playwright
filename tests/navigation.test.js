@@ -1,3 +1,4 @@
+// @ts-check
 import { test, expect } from '@playwright/test';
 
 test.describe('US2 - Navigation & Consultation des Produits', () => {
@@ -12,7 +13,7 @@ test.describe('US2 - Navigation & Consultation des Produits', () => {
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
   });
 
-  test('TC06 - Tous les produits ont une image, un nom et un prix', async ({ page }, testInfo) => {
+  test('TC06 - Tous les produits ont une image, un nom et un prix', async ({ page }) => {
     
     const productsSelector = '[data-test="inventory-item"]';
     await page.waitForSelector(productsSelector, { timeout: 5000 });
@@ -44,7 +45,7 @@ test.describe('US2 - Navigation & Consultation des Produits', () => {
     }
   });
 
-  test('TC07 - Tri des produits par nom et prix', async ({ page }, testInfo) => {
+  test('TC07 - Tri des produits par nom et prix', async ({ page }) => {
     
     // Test de tri dans l'ordre A-Z
     await page.selectOption('[data-test="product-sort-container"]', 'az'); 

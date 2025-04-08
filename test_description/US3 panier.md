@@ -52,16 +52,15 @@ Vérifier que la suppression d’un produit depuis la page panier fonctionne cor
 🔑 `Username: standard_user`  
 🔑 `Password: secret_sauce`  
 
-📍 Aller sur la page du panier.
+📍 ajouter 2 produits au panier
 
 #### **Étapes du test**  
 
 | **#** | **Action** | **Données** | **Résultat attendu** |
 |-------|-----------|-------------|----------------------|
-| **1.** | Cliquer sur le bouton "Add to cart" d’un produit. | Ex : Sauce Labs Bike Light | Le bouton se transforme en "Remove" et le badge affiche "1" sur le panier |
 | **1.** | Cliquer sur l'icone du panier en haut a droite de l'écran | - | La page "Your Cart" s'affiche |
-| **2.** | Cliquer sur "Remove" à côté du produit. | - | Le produit est retiré du panier. |
-| **3.** | Vérifier le badge du panier. | - | Le badge n’affiche plus rien  |
+| **2.** | Cliquer sur "Remove" à côté d'un des 2 produits. | - | Le produit en question est retiré du panier. |
+| **3.** | Vérifier le badge du panier. | - | Le badge affiche "1"  |
 
 ---
 
