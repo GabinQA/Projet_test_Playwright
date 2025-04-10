@@ -56,6 +56,6 @@ Vérifier que le système affiche un message d’erreur si l’un des champs req
 |-------|------------|-------------|------------------------|
 | **1.** | Cliquer sur l'icône du panier | - | La page "Your Cart" s'affiche |
 | **2.** | Cliquer sur le bouton "Checkout" | - | La page "Checkout: Your Information" s'affiche |
-| **3.** | Laisser le champ "First name" vide<br> - remplir le champ "Last name" et "Zip code" | Last name : test <br> Zip code : 34130 | Un message d’erreur s’affiche : "Error: First Name is required" |
-| **4.** | Laisser le champ "Last name" vide<br> - remplir le champ "First name" et "Zip code" | First name : test <br> Zip code : 34130 | Un message d’erreur s’affiche : "Error: Last Name is required" |
-| **5.** | Laisser le champ "Postal code" vide<br> - remplir le champ "First name" et "Last name" | First name : test <br> Last name : 34130 | Un message d’erreur s’affiche : "Error: Postal code is required" |
+| **3.** | Laisser le champ "First name" vide<br> - remplir le champ "Last name" et "Zip code" | Last name : PAOLINO <br> Zip code : 34130 | Un message d’erreur s’affiche : "Error: First Name is required" |
+| **4.** | Laisser le champ "Last name" vide<br> - remplir le champ "First name" et "Zip code" | First name : Gabin <br> Zip code : 34130 | Un message d’erreur s’affiche : "Error: Last Name is required" |
+| **5.** | Laisser le champ "Postal code" vide<br> - remplir le champ "First name" et "Last name" | First name : Gabin <br> Last name : PAOLINO | Un message d’erreur s’affiche : "Error: Postal code is required" |
