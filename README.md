@@ -2,7 +2,7 @@
 
 ## 📖 Présentation du projet
 
-Le projet **SauceDemo** est une suite de tests automatisés visant à valider les fonctionnalités principales du site de commerce en ligne. Ces tests couvrent les processus essentiels tels que l'authentification, la navigation, la gestion du panier et le passage de commande. L'objectif est de garantir que ces fonctionnalités sont performantes et fonctionnelles, tout en assurant une couverture pour des tests de régression futurs.
+Le projet **SauceDemo** est une suite de tests automatisés visant à valider les fonctionnalités principales du site de commerce en ligne. Ces tests couvrent les processus essentiels tels que l'authentification, la navigation, la gestion du panier et le passage de commande. L'objectif est de garantir que ces fonctionnalités sont fonctionnelles, tout en assurant une couverture pour des tests de régression futurs.
 
 ## 🎯 Objectifs
 
@@ -83,7 +83,13 @@ npx playwright test
 
 ### Exécuter un test spécifique
 ```sh
-npx playwright test tests/authentification.test.js
+npx playwright test tests/US1_authentification.test.js
+```
+
+### Exécuter un sous test spécifique
+
+```sh
+npx playwright test --grep "TC01"
 ```
 
 ## 📌 Améliorations futures
